@@ -22,7 +22,7 @@ def add(request):
         movie.save()
         return HttpResponseRedirect('/movies')
 
-    return render(request, 'movies/add.html') 
+    return render(request, 'movies/movies.html') 
 
 def delete(request, id):
     try:

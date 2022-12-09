@@ -4,12 +4,17 @@
         <title>Movies</title>
     </head>
     <body>
+        <form action='/movies/add' method='POST'>
+            {% csrf_token %}
+            <input type='text' name='title' id='title' placeholder="Movie title">
+            <input type='text' name='year' id='year' placeholder="Movie year">
+            <input type='submit' value="Add">
+        </form>
         <h1> Movies </h1>
         <ul> 
             {% for movie in movies %}
             <li><a href="{{movie.id}}">{{movie.title}}</a></li> 
             {% endfor %}
         </ul>
-        <a href="/movies/add">Add a movie</a>
     </body>
 </html>
