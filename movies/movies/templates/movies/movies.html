@@ -16,6 +16,7 @@
             <li>
                 <a href="{% url 'detail' movie.id %}">{{movie.title}}</a> 
                 <a href="{% url 'delete' movie.id %}"><button>Delete</button></a>
+                <a href="{% url 'update' movie.id %}"><button>Update</button></a>
             </li>
             {% endfor %}
         </ul>

@@ -1,13 +1,13 @@
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Movie
+
+def home(request):
+    return HttpResponse('<h1>Home</h1>') 
 
 def movies(request):
     data = Movie.objects.all()
     return render(request, 'movies/movies.html', {'movies': data})
-
-def home(request):
-    return HttpResponse('<h1>Home</h1>') 
 
 def detail(request, id):
     data = Movie.objects.get(pk=id)
@@ -31,3 +31,15 @@ def delete(request, id):
         raise Http404("Movie does not exist")
     movie.delete()
     return HttpResponseRedirect('/movies')
+
+def update(request, id):
+    movie = Movie.objects.get(pk=id)
+    title = request.POST.get('title')
+    year = request.POST.get('year')
+    if title and year:
+        movie.title = title
+        movie.year = year
+        movie.save()
+        return redirect('movies')
+    return render(request, 'movies/update.html', {'movie': movie}) 
+ 

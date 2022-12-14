@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Update Movie</title>
+    </head>
+    <body>
+        <p>{{movie.title}}</p>
+        <p>{{movie.year}}</p>
+        <form action="{% url 'update' movie.id %}" method='POST'>
+            {% csrf_token %}
+            <input type='text' name='title' id='title' placeholder="Edit Movie title">
+            <input type='text' name='year' id='year' placeholder="Edit Movie year">
+            <input type='submit' value="Update">
+        </form>
+    </body>
+</html>
