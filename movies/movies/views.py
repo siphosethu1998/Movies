@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
 from .models import Movie
 from .forms import MovieForm
@@ -27,7 +27,7 @@ def delete(request, id):
     except:
         raise Http404("Movie does not exist")
     movie.delete()
-    return HttpResponseRedirect('/add')
+    return redirect('add')
 
 def update(request, id):
     movie = Movie.objects.get(pk=id)
