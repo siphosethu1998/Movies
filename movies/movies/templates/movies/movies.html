@@ -1,23 +1,21 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Movies</title>
-    </head>
-    <body>
-        <form action="{% url 'add' %}" method='POST'>
-            {% csrf_token %}
-            {{form}}
-            <input type='submit' value="Add">
-        </form>
-        <h1> Movies </h1>
-        <ul> 
-            {% for movie in movies %}
-            <li>
-                <a href="{% url 'detail' movie.id %}">{{movie.title}}</a> 
-                <a href="{% url 'delete' movie.id %}"><button>Delete</button></a>
-                <a href="{% url 'update' movie.id %}"><button>Update</button></a>
-            </li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends 'movies/base.html' %}
+
+{% block title %} Movies {% endblock %}
+
+{% block content %}
+<form action="{% url 'add' %}" method='POST'>
+    {% csrf_token %}
+    {{form}}
+    <input type='submit' value="Add">
+</form>
+<h1> Movies </h1>
+<ul> 
+    {% for movie in movies %}
+    <li>
+        <a href="{% url 'detail' movie.id %}">{{movie.title}}</a> 
+        <a href="{% url 'delete' movie.id %}"><button>Delete</button></a>
+        <a href="{% url 'update' movie.id %}"><button>Update</button></a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
