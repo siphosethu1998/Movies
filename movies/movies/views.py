@@ -4,9 +4,9 @@ from .models import Movie
 from .forms import MovieForm
 
 def home(request):
-    return HttpResponse('<h1>Home of Movies</h1>') 
+    return render(request, 'movies/base.html')
 
-def add(request):
+def add_show(request): # can add and show movies
     form = MovieForm()
     
     if request.method == 'POST':
@@ -27,7 +27,7 @@ def delete(request, id):
     except:
         raise Http404("Movie does not exist")
     movie.delete()
-    return redirect('add')
+    return redirect('add_show')
 
 def update(request, id):
     movie = Movie.objects.get(pk=id)
@@ -37,6 +37,6 @@ def update(request, id):
         movie.title = title
         movie.year = year
         movie.save()
-        return redirect('add')
+        return redirect('add_show')
     return render(request, 'movies/update.html', {'movie': movie}) 
  
