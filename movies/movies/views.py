@@ -30,6 +30,7 @@ def delete(request, id):
     return redirect('add_show')
 
 def update(request, id):
+    # this needs to converted to a form as well
     movie = Movie.objects.get(pk=id)
     title = request.POST.get('title')
     year = request.POST.get('year')

@@ -1,0 +1,27 @@
+li {
+	display: flex;
+	/* flex-direction: row; */
+	justify-content: space-between;
+	/* background-color : gold; */
+	max-width: 15%;
+	margin-bottom: 10px;
+}
+
+.flex-update {
+	background-color: coral;
+	border-color: coral;
+}
+
+.flex-del {
+	background-color: crimson;
+	border-color: crimson;
+}
+
+.submit {
+	background-color: lime;
+	border-color: lime;
+}
+
+body {
+	background-color: lightgray;
+}

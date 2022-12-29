@@ -1,12 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-         <title> {% block title %} Base {% endblock %} </title>
+        <title> {% block title %} Base {% endblock %} </title>
+        <link rel="stylesheet" href="{% static 'movies.css' %}" >
     </head>
     <body>
         {% block content %}
-        <p> Home of Movies </p>
+        <h1> Home of Movies </h1>
         {% endblock %}
     </body>
 </html>

@@ -6,15 +6,17 @@
 <form action="{% url 'add_show' %}" method='POST'>
     {% csrf_token %}
     {{form}}
-    <input type='submit' value="Add">
+    <input class="submit" type='submit' value="Add">
 </form>
 <h1> Movies </h1>
 <ul> 
     {% for movie in movies %}
     <li>
         <a href="{% url 'detail' movie.id %}">{{movie.title}}</a> 
-        <a href="{% url 'update' movie.id %}"><button>Update</button></a>
-        <a href="{% url 'delete' movie.id %}"><button>Delete</button></a>
+        <div>
+            <a href="{% url 'update' movie.id %}"><button class='flex-update'>Update</button></a>
+            <a href="{% url 'delete' movie.id %}"><button class='flex-del'>Delete</button></a>
+        </div>
     </li>
     {% endfor %}
 </ul>
