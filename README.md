@@ -5,6 +5,6 @@
 
 ### Tech Stack
 * Django
-* SQlite3
+* SQLite3
 * CSS
 * HTML
